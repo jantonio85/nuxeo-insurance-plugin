@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<component name="org.athento.nuxeo.types.InsuranceTypes" version="1.0.0">
+	<require>org.nuxeo.runtime.started</require>
+	<extension target="org.nuxeo.ecm.core.schema.TypeService" point="schema">
+		<schema name="Insurance_Search_cv" prefix="Insurance_Search_cv" src="data/schemas/Insurance_Search_cv.xsd"/>
+		<schema name="Insurance" prefix="Insurance" src="data/schemas/Insurance.xsd"/>
+		<schema name="Auto" prefix="Auto" src="data/schemas/Auto.xsd"/>
+	</extension>
+	<extension target="org.nuxeo.ecm.core.schema.TypeService" point="doctype">
+		<doctype name="Insurance" extends="File">
+			<schema name="Insurance"/>
+			<schema name="Auto"/>
+		</doctype>
+		<doctype name="Insurance_Search_cv" extends="Document">
+			<facet name="ContentViewDisplay"/>
+			<facet name="SavedSearch"/>
+			<facet name="HiddenInNavigation"/>
+			<schema name="Insurance_Search_cv"/>
+		</doctype>
+	</extension>
+
+	<extension target="org.nuxeo.ecm.platform.types.TypeService" point="types">
+		<type id="Insurance">
+			<label>label.Insurance.Insurance</label>
+			<icon>/img/file_100.png</icon>
+			<bigIcon>/img/file_100.png</bigIcon>
+			<description>Insurance</description>
+			<default-view>view_documents</default-view>
+			<layouts mode="create">
+				<layout>layout@Insurance-edit</layout>
+			</layouts>
+			<layouts mode="edit">
+				<layout>layout@Insurance-edit</layout>
+			</layouts>
+			<layouts mode="view">
+				<layout>layout@Insurance-edit</layout>
+			</layouts>
+		</type>
+		<type id="Insurance_Search_cv">
+			<label>label.Insurance.search</label>
+			<icon>/icons/search.png</icon>
+			<bigIcon>/icons/search_100.png</bigIcon>
+			<description>DefaultSearch.description</description>
+			<default-view>home_view_documents</default-view>
+			<layouts mode="any">
+				<layout>heading</layout>
+				<layout>Insurance_Search_cv@search</layout>
+			</layouts>
+		</type>
+		<type id="Folder">
+			<subtypes>
+				<type>Insurance</type>
+			</subtypes>
+		</type>
+		<type id="Workspace">
+			<subtypes>
+				<type>Insurance</type>
+			</subtypes>
+		</type>
+	</extension>
+</component>

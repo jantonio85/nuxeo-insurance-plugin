@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<component name="org.athento.nuxeo.vocabularies.InsuranceVocabularies" version="1.0.0">
+	<extension target="org.nuxeo.ecm.directory.sql.SQLDirectoryFactory" point="directories">
+		<directory name="insurer">
+			<schema>vocabulary</schema>
+			<dataSource>java:/nxsqldirectory</dataSource>
+			<cacheTimeout>3600</cacheTimeout>
+			<cacheMaxSize>1000</cacheMaxSize>
+			<idField>id</idField>
+			<!-- <autoincrementIdField>false</autoincrementIdField> -->
+			<createTablePolicy>on_missing_columns</createTablePolicy>
+			<createTablePolicy>always</createTablePolicy>
+			<table>vocabulary_insurer</table>
+			<dataFile>data/vocabularies/insurer.csv</dataFile>
+		</directory>
+		<directory name="sino">
+			<schema>vocabulary</schema>
+			<dataSource>java:/nxsqldirectory</dataSource>
+			<cacheTimeout>3600</cacheTimeout>
+			<cacheMaxSize>1000</cacheMaxSize>
+			<idField>id</idField>
+			<autoincrementIdField>false</autoincrementIdField>
+			<!-- <createTablePolicy>always</createTablePolicy> -->
+			<createTablePolicy>on_missing_columns</createTablePolicy>
+			<table>vocabulary_sino</table>
+			<dataFile>data/vocabularies/sino.csv</dataFile>
+		</directory>
+	</extension>
+	<extension target="org.nuxeo.ecm.directory.ui.DirectoryUIManager" point="directories">
+	    <directory name="insurer" layout="vocabulary" sortField="label"/>
+		<directory name="sino" layout="vocabulary" sortField="label"/>
+	</extension>
+</component>

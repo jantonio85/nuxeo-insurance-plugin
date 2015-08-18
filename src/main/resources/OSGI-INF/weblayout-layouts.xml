@@ -1,0 +1,827 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<component name="org.athento.nuxeo.layouts.InsuranceLayouts"
+	version="1.0.0">
+	<extension target="org.nuxeo.ecm.platform.forms.layout.WebLayoutManager"
+		point="layouts">
+
+		<layout name="layout@Insurance-edit">
+			<templates>
+				<template mode="any">/layouts/widget_layout_template.xhtml
+				</template>
+			</templates>
+			<rows>
+				<row>
+					<properties mode="any">
+						<property name="nxl_colspan_0">1</property>
+						<property name="nxl_colspan_1">1</property>
+					</properties>
+					<widget>title</widget>
+					<widget>insurer</widget>
+				</row>
+				<row>
+					<properties mode="any">
+						<property name="nxl_colspan_0">1</property>
+						<property name="nxl_colspan_1">1</property>
+					</properties>
+					<widget>start_date</widget>
+					<widget>active</widget>
+				</row>
+				<row>
+					<properties mode="any">
+						<property name="nxl_colspan_0">2</property>
+					</properties>
+					<widget>agent</widget>
+				</row>
+				<row>
+					<properties mode="any">
+						<property name="nxl_colspan_0">1</property>
+						<property name="nxl_colspan_1">1</property>
+					</properties>
+					<widget>insured_first_name</widget>
+					<widget>insured_last_name</widget>
+				</row>
+				<row>
+					<properties mode="any">
+						<property name="nxl_colspan_0">1</property>
+						<property name="nxl_colspan_1">1</property>
+					</properties>
+					<widget>insured_id</widget>
+					<widget>insured_phone_number</widget>
+				</row>
+				<row>
+					<properties mode="any">
+						<property name="nxl_colspan_0">1</property>
+						<property name="nxl_colspan_1">1</property>
+					</properties>
+					<widget>vehicule_type</widget>
+					<widget>vehicule_covered</widget>
+				</row>
+				<row>
+					<properties mode="any">
+						<property name="nxl_colspan_0">1</property>
+					</properties>
+					<widget>vehicule_id</widget>
+				</row>
+				<row>
+					<properties mode="any">
+						<property name="nxl_colspan_0">2</property>
+					</properties>
+					<widget>insurance_rate</widget>
+				</row>
+			</rows>
+			<widget name="title" type="text">
+				<labels>
+					<label mode="any">label.Insurance.title</label>
+				</labels>
+				<translated>true</translated>
+				<fields>
+					<field>dc:title</field>
+				</fields>
+				<properties widgetMode="edit">
+					<property name="styleClass">dataInputText</property>
+					<property name="required">true</property>
+					<property name="ordering">ordering</property>
+				</properties>
+				<properties widgetMode="view">
+					<property name="styleClass">dataInputText</property>
+				</properties>
+			</widget>
+			<widget name="insurer" type="suggestOneDirectory">
+				<labels>
+					<label mode="any">label.Insurance.insurer</label>
+				</labels>
+				<translated>true</translated>
+				<fields>
+					<field>Insurance:insurer</field>
+				</fields>
+				<properties widgetMode="edit">
+					<property name="directoryName">insurer</property>
+					<property name="ordering">ordering</property>
+				</properties>
+				<properties widgetMode="view">
+					<property name="directoryName">insurer</property>
+					<property name="ordering">ordering</property>
+				</properties>
+			</widget>
+			<widget name="start_date" type="datetime">
+				<labels>
+					<label mode="any">label.Insurance.start_date</label>
+				</labels>
+				<translated>true</translated>
+				<fields>
+					<field>Insurance:start_date</field>
+				</fields>
+				<properties widgetMode="view">
+					<property name="pattern">#{nxu:basicDateFormatter()}</property>
+				</properties>
+				<properties widgetMode="edit">
+					<property name="format">#{nxu:basicDateFormatter()}</property>
+				</properties>
+			</widget>
+			<widget name="active" type="selectOneDirectory">
+				<labels>
+					<label mode="any">label.Insurance.active</label>
+				</labels>
+				<translated>true</translated>
+				<fields>
+					<field>Insurance:active</field>
+				</fields>
+				<properties widgetMode="edit">
+					<property name="directoryName">sino</property>
+					<property name="localize">true</property>
+					<property name="ordering">ordering</property>
+				</properties>
+				<properties widgetMode="view">
+					<property name="directoryName">sino</property>
+					<property name="localize">true</property>
+					<property name="ordering">ordering</property>
+				</properties>
+			</widget>
+			<widget name="agent" type="text">
+				<labels>
+					<label mode="any">label.Insurance.agent</label>
+				</labels>
+				<translated>true</translated>
+				<fields>
+					<field>Insurance:agent</field>
+				</fields>
+			</widget>
+			<widget name="insured_first_name" type="text">
+				<labels>
+					<label mode="any">label.Insurance.insured_first_name</label>
+				</labels>
+				<translated>true</translated>
+				<fields>
+					<field>Insurance:insured_first_name</field>
+				</fields>
+			</widget>
+			<widget name="insured_last_name" type="text">
+				<labels>
+					<label mode="any">label.Insurance.insured_last_name</label>
+				</labels>
+				<translated>true</translated>
+				<fields>
+					<field>Insurance:insured_last_name</field>
+				</fields>
+			</widget>
+			<widget name="insured_id" type="text">
+				<labels>
+					<label mode="any">label.Insurance.insured_id</label>
+				</labels>
+				<translated>true</translated>
+				<fields>
+					<field>Insurance:insured_id</field>
+				</fields>
+			</widget>
+			<widget name="insured_phone_number" type="text">
+				<labels>
+					<label mode="any">label.Insurance.insured_phone_number_id</label>
+				</labels>
+				<translated>true</translated>
+				<fields>
+					<field>Insurance:insured_phone_number</field>
+				</fields>
+			</widget>
+			<widget name="vehicule_type" type="text">
+				<labels>
+					<label mode="any">label.Insurance.vehicule_type</label>
+				</labels>
+				<translated>true</translated>
+				<fields>
+					<field>Auto:vehicule_type</field>
+				</fields>
+			</widget>
+			<widget name="vehicule_covered" type="text">
+				<labels>
+					<label mode="any">label.Insurance.vehicule_covered</label>
+				</labels>
+				<translated>true</translated>
+				<fields>
+					<field>Auto:vehicule_covered</field>
+				</fields>
+			</widget>
+			<widget name="vehicule_id" type="text">
+				<labels>
+					<label mode="any">label.Insurance.vehicule_id</label>
+				</labels>
+				<translated>true</translated>
+				<fields>
+					<field>Auto:vehicule_id</field>
+				</fields>
+			</widget>
+			<widget name="insurance_rate" type="text">
+				<labels>
+					<label mode="any">label.Insurance.insurance_rate</label>
+				</labels>
+				<translated>true</translated>
+				<fields>
+					<field>Insurance:insurance_rate</field>
+				</fields>
+			</widget>
+		</layout>
+		
+		<layout name="Insurance_Search_cv@cvLayout">
+      <templates>
+        <template mode="any">/layouts/widget_layout_template.xhtml</template>
+      </templates>
+      <rows>
+        <row>
+          <properties mode="any">
+            <property name="nxl_colspan_0">1</property>
+          </properties>
+          <widget>dublincore_title</widget>
+        </row>
+        <row>
+          <properties mode="any">
+            <property name="nxl_colspan_0">1</property>
+          </properties>
+          <widget>Insurance_Search_insurer</widget>
+        </row>
+        <row>
+          <properties mode="any">
+            <property name="nxl_colspan_0">1</property>
+          </properties>
+          <widget>Insurance_Search_active</widget>
+        </row>
+        <row>
+          <properties mode="any">
+            <property name="nxl_colspan_0">1</property>
+          </properties>
+          <widget>Insurance_Search_start_date</widget>
+        </row>
+        <row>
+          <properties mode="any">
+            <property name="nxl_colspan_0">1</property>
+          </properties>
+          <widget>Insurance_Search_agent</widget>
+        </row>
+        <row>
+          <properties mode="any">
+            <property name="nxl_colspan_0">1</property>
+          </properties>
+          <widget>Insurance_Search_insured_first_name</widget>
+        </row>
+        <row>
+          <properties mode="any">
+            <property name="nxl_colspan_0">1</property>
+          </properties>
+          <widget>Insurance_Search_insured_last_name</widget>
+        </row>
+        <row>
+          <properties mode="any">
+            <property name="nxl_colspan_0">1</property>
+          </properties>
+          <widget>Insurance_Search_insured_id</widget>
+        </row>
+        <row>
+          <properties mode="any">
+            <property name="nxl_colspan_0">1</property>
+          </properties>
+          <widget>Insurance_Search_insured_phone_number</widget>
+        </row>
+        <row>
+          <properties mode="any">
+            <property name="nxl_colspan_0">1</property>
+          </properties>
+          <widget>Insurance_Search_vehicule_type</widget>
+        </row>
+        <row>
+          <properties mode="any">
+            <property name="nxl_colspan_0">1</property>
+          </properties>
+          <widget>Insurance_Search_vehicule_id</widget>
+        </row>
+        <row>
+          <properties mode="any">
+            <property name="nxl_colspan_0">1</property>
+          </properties>
+          <widget>Insurance_Search_vehicule_covered</widget>
+        </row>
+        <row>
+          <properties mode="any">
+            <property name="nxl_colspan_0">1</property>
+          </properties>
+          <widget>Insurance_Search_insurance_rate</widget>
+        </row>
+      </rows>
+      <widget name="dublincore_title" type="text">
+        <labels>
+          <label mode="any">label.Insurance.title</label>
+        </labels>
+        <translated>true</translated>
+        <fields>
+          <field>Insurance_Search_cv:dublincore_title</field>
+        </fields>
+      </widget>
+      <widget name="Insurance_Search_insurer" type="suggestOneDirectory">
+        <labels>
+          <label mode="any">label.Insurance.insurer</label>
+        </labels>
+        <translated>true</translated>
+        <fields>
+          <field>Insurance_Search_cv:Insurance_Search_insurer</field>
+        </fields>
+        <properties widgetMode="edit">
+          <property name="directoryName">insurer</property>
+          <property name="ordering">ordering</property>         
+        </properties>
+      </widget>
+      <widget name="Insurance_Search_active" type="selectOneDirectory">
+        <labels>
+          <label mode="any">label.Insurance.active</label>
+        </labels>
+        <translated>true</translated>
+        <fields>
+          <field>Insurance_Search_cv:Insurance_Search_active</field>
+        </fields>
+        <properties widgetMode="edit">
+          <property name="localize">true</property>
+          <property name="directoryName">sino</property>
+          <property name="ordering">ordering</property>
+        </properties>
+      </widget>
+      <widget name="Insurance_Search_start_date" type="datetime">
+        <labels>
+          <label mode="any">label.Insurance.start_date</label>
+        </labels>
+        <translated>true</translated>
+        <fields>
+          <field>Insurance_Search_cv:Insurance_Search_start_date</field>
+        </fields>
+      </widget>
+      <widget name="Insurance_Search_agent" type="text">
+        <labels>
+          <label mode="any">label.Insurance.agent</label>
+        </labels>
+        <translated>true</translated>
+        <fields>
+          <field>Insurance_Search_cv:Insurance_Search_agent</field>
+        </fields>
+      </widget>
+      <widget name="Insurance_Search_insured_first_name" type="text">
+        <labels>
+          <label mode="any">label.Insurance.insured_first_name</label>
+        </labels>
+        <translated>true</translated>
+        <fields>
+          <field>Insurance_Search_cv:Insurance_Search_insured_first_name</field>
+        </fields>
+      </widget>
+      <widget name="Insurance_Search_insured_last_name" type="text">
+        <labels>
+          <label mode="any">label.Insurance.insured_last_name</label>
+        </labels>
+        <translated>true</translated>
+        <fields>
+          <field>Insurance_Search_cv:Insurance_Search_insured_last_name</field>
+        </fields>
+      </widget>
+      <widget name="Insurance_Search_insured_id" type="text">
+        <labels>
+          <label mode="any">label.Insurance.insured_id</label>
+        </labels>
+        <translated>true</translated>
+        <fields>
+          <field>Insurance_Search_cv:Insurance_Search_insured_id</field>
+        </fields>
+      </widget>
+      <widget name="Insurance_Search_insured_phone_number" type="text">
+        <labels>
+          <label mode="any">label.Insurance.insured_phone_number_id</label>
+        </labels>
+        <translated>true</translated>
+        <fields>
+          <field>Insurance_Search_cv:Insurance_Search_insured_phone_number</field>
+        </fields>
+      </widget>
+      <widget name="Insurance_Search_vehicule_type" type="text">
+        <labels>
+          <label mode="any">label.Insurance.vehicule_type</label>
+        </labels>
+        <translated>true</translated>
+        <fields>
+          <field>Insurance_Search_cv:Insurance_Search_vehicule_type</field>
+        </fields>
+      </widget>
+      <widget name="Insurance_Search_vehicule_id" type="text">
+        <labels>
+          <label mode="any">label.Insurance.vehicule_id</label>
+        </labels>
+        <translated>true</translated>
+        <fields>
+          <field>Insurance_Search_cv:Insurance_Search_vehicule_id</field>
+        </fields>
+      </widget>
+      <widget name="Insurance_Search_vehicule_covered" type="text">
+        <labels>
+          <label mode="any">label.Insurance.vehicule_covered</label>
+        </labels>
+        <translated>true</translated>
+        <fields>
+          <field>Insurance_Search_cv:Insurance_Search_vehicule_covered</field>
+        </fields>
+      </widget>
+      <widget name="Insurance_Search_insurance_rate" type="text">
+        <labels>
+          <label mode="any">label.Insurance.insurance_rate</label>
+        </labels>
+        <translated>true</translated>
+        <fields>
+          <field>Insurance_Search_cv:Insurance_Search_insurance_rate</field>
+        </fields>
+      </widget>
+    </layout>
+		<layout name="Insurance_Results">
+      <templates>
+        <template mode="any">/layouts/layout_listing_ajax_template.xhtml</template>
+        <template mode="edit_columns">/layouts/layout_column_selection_template.xhtml</template>
+        <template mode="edit_sort_infos">/layouts/layout_sort_infos_template.xhtml</template>
+        <template mode="edit_sort_infos_map">/layouts/layout_sort_infos_template.xhtml</template>
+        <template mode="csv">/layouts/layout_listing_csv_template.xhtml</template>
+        <template mode="pdf">/layouts/layout_listing_pdf_template.xhtml</template>
+      </templates>
+      <properties mode="any">
+        <property name="showListingHeader">true</property>
+        <property name="showRowEvenOddClass">true</property>
+      </properties>
+      <properties mode="edit_columns">
+        <property name="availableElementsLabel">label.selection.availableColumns</property>
+        <property name="selectedElementsLabel">label.selection.selectedColumns</property>
+        <property name="selectedElementsHelp"></property>
+        <property name="selectSize">10</property>
+        <property name="displayAlwaysSelectedColumns">false</property>
+      </properties>
+      <properties mode="edit_sort_infos">
+        <property name="newSortInfoTemplate">#{documentSearchActions.newSortInfo}</property>
+        <property name="required">false</property>
+      </properties>
+      <properties mode="edit_sort_infos_map">
+        <property name="newSortInfoTemplate">#{documentSearchActions.newSortInfoMap}</property>
+        <property name="required">false</property>
+      </properties>
+      <columns>
+        <column name="selection" alwaysSelected="true">
+          <properties mode="any">
+            <property name="isListingSelectionBox">true</property>
+            <property name="useFirstWidgetLabelAsColumnHeader">false</property>
+            <property name="columnStyleClass">iconColumn</property>
+          </properties>
+          <properties mode="csv">
+            <property name="isHidden">true</property>
+          </properties>
+          <properties mode="pdf">
+            <property name="isHidden">true</property>
+          </properties>
+          <widget>listing_ajax_selection_box</widget>
+        </column>
+        <column name="listing_title_link">
+          <properties mode="any">
+            <property name="useFirstWidgetLabelAsColumnHeader">true</property>
+            <property name="columnStyleClass"></property>
+            <property name="label">label.Insurance.title</property>
+            <property name="sortPropertyName">dc:title</property>
+          </properties>
+          <properties mode="edit_sort_infos">
+            <property name="showInSortInfoSelection">true</property>
+          </properties>
+          <properties mode="edit_sort_infos_map">
+            <property name="showInSortInfoSelection">true</property>
+          </properties>
+          <widget>listing_title_link</widget>
+        </column>
+        <column name="start_date">
+          <properties mode="any">
+            <property name="useFirstWidgetLabelAsColumnHeader">true</property>
+            <property name="columnStyleClass"></property>
+            <property name="label">label.Insurance.start_date</property>
+            <property name="sortPropertyName">Insurance:start_date</property>
+          </properties>
+          <properties mode="edit_sort_infos">
+            <property name="showInSortInfoSelection">true</property>
+          </properties>
+          <properties mode="edit_sort_infos_map">
+            <property name="showInSortInfoSelection">true</property>
+          </properties>
+          <widget>start_date</widget>
+        </column>
+        <column name="active">
+          <properties mode="any">
+            <property name="useFirstWidgetLabelAsColumnHeader">true</property>
+            <property name="columnStyleClass"></property>
+            <property name="localize">true</property>
+            <property name="label">label.Insurance.active</property>
+            <property name="sortPropertyName">Insurance:active</property>
+          </properties>
+          <properties mode="edit_sort_infos">
+            <property name="showInSortInfoSelection">true</property>
+          </properties>
+          <properties mode="edit_sort_infos_map">
+            <property name="showInSortInfoSelection">true</property>
+          </properties>
+          <widget>active</widget>
+        </column>
+        <column name="agent">
+          <properties mode="any">
+            <property name="useFirstWidgetLabelAsColumnHeader">true</property>
+            <property name="columnStyleClass"></property>
+            <property name="label">label.Insurance.agent</property>
+            <property name="sortPropertyName">Insurance:agent</property>
+          </properties>
+          <properties mode="edit_sort_infos">
+            <property name="showInSortInfoSelection">true</property>
+          </properties>
+          <properties mode="edit_sort_infos_map">
+            <property name="showInSortInfoSelection">true</property>
+          </properties>
+          <widget>agent</widget>
+        </column>
+        <column name="insurer">
+          <properties mode="any">
+            <property name="useFirstWidgetLabelAsColumnHeader">true</property>
+            <property name="columnStyleClass"></property>
+            <property name="label">label.Insurence.insurer</property>
+            <property name="sortPropertyName">Insurence:insurer</property>
+          </properties>
+          <properties mode="edit_sort_infos">
+            <property name="showInSortInfoSelection">true</property>
+          </properties>
+          <properties mode="edit_sort_infos_map">
+            <property name="showInSortInfoSelection">true</property>
+          </properties>
+          <widget>insurer</widget>
+        </column>
+        <column name="insured_first_name">
+          <properties mode="any">
+            <property name="useFirstWidgetLabelAsColumnHeader">true</property>
+            <property name="columnStyleClass"></property>
+            <property name="label">label.Insurence.insured_first_name</property>
+            <property name="sortPropertyName">Insurence:insured_first_name</property>
+          </properties>
+          <properties mode="edit_sort_infos">
+            <property name="showInSortInfoSelection">true</property>
+          </properties>
+          <properties mode="edit_sort_infos_map">
+            <property name="showInSortInfoSelection">true</property>
+          </properties>
+          <widget>insured_first_name</widget>
+        </column>
+        <column name="insured_last_name">
+          <properties mode="any">
+            <property name="useFirstWidgetLabelAsColumnHeader">true</property>
+            <property name="columnStyleClass"></property>
+            <property name="label">label.Insurence.insured_last_name</property>
+            <property name="sortPropertyName">Insurence:insured_last_name</property>
+          </properties>
+          <properties mode="edit_sort_infos">
+            <property name="showInSortInfoSelection">true</property>
+          </properties>
+          <properties mode="edit_sort_infos_map">
+            <property name="showInSortInfoSelection">true</property>
+          </properties>
+          <widget>insured_last_name</widget>
+        </column>
+        <column name="insured_id">
+          <properties mode="any">
+            <property name="useFirstWidgetLabelAsColumnHeader">true</property>
+            <property name="columnStyleClass"></property>
+            <property name="label">label.Insurence.insured_id</property>
+            <property name="sortPropertyName">Insurence:insured_id</property>
+          </properties>
+          <properties mode="edit_sort_infos">
+            <property name="showInSortInfoSelection">true</property>
+          </properties>
+          <properties mode="edit_sort_infos_map">
+            <property name="showInSortInfoSelection">true</property>
+          </properties>
+          <widget>insured_id</widget>
+        </column>
+        <column name="vehicule_type">
+          <properties mode="any">
+            <property name="useFirstWidgetLabelAsColumnHeader">true</property>
+            <property name="columnStyleClass"></property>
+            <property name="label">label.Insurance.vehicule_type</property>
+            <property name="sortPropertyName">Auto:vehicule_type</property>
+          </properties>
+          <properties mode="edit_sort_infos">
+            <property name="showInSortInfoSelection">true</property>
+          </properties>
+          <properties mode="edit_sort_infos_map">
+            <property name="showInSortInfoSelection">true</property>
+          </properties>
+          <widget>vehicule_type</widget>
+        </column>
+        <column name="vehicule_id">
+          <properties mode="any">
+            <property name="useFirstWidgetLabelAsColumnHeader">true</property>
+            <property name="columnStyleClass"></property>
+            <property name="label">label.Insurance.vehicule_id</property>
+            <property name="sortPropertyName">Auto:vehicule_id</property>
+          </properties>
+          <properties mode="edit_sort_infos">
+            <property name="showInSortInfoSelection">true</property>
+          </properties>
+          <properties mode="edit_sort_infos_map">
+            <property name="showInSortInfoSelection">true</property>
+          </properties>
+          <widget>vehicule_id</widget>
+        </column>
+        <column name="insured_phone_number">
+          <properties mode="any">
+            <property name="useFirstWidgetLabelAsColumnHeader">true</property>
+            <property name="columnStyleClass"></property>
+            <property name="label">label.Insurance.insured_phone_number_id</property>
+            <property name="sortPropertyName">Insurance:insured_phone_number</property>
+          </properties>
+          <properties mode="edit_sort_infos">
+            <property name="showInSortInfoSelection">true</property>
+          </properties>
+          <properties mode="edit_sort_infos_map">
+            <property name="showInSortInfoSelection">true</property>
+          </properties>
+          <widget>insured_phone_number</widget>
+        </column>
+        <column name="nxl_unknown_col">
+          <properties mode="any">
+            <property name="useFirstWidgetLabelAsColumnHeader">true</property>
+            <property name="columnStyleClass"></property>
+            <property name="label"></property>
+            <property name="sortPropertyName"></property>
+          </properties>
+          <properties mode="edit_sort_infos">
+            <property name="showInSortInfoSelection">true</property>
+          </properties>
+          <properties mode="edit_sort_infos_map">
+            <property name="showInSortInfoSelection">true</property>
+          </properties>
+        </column>
+        <column name="nxl_unknown_col_1">
+          <properties mode="any">
+            <property name="useFirstWidgetLabelAsColumnHeader">true</property>
+            <property name="columnStyleClass"></property>
+            <property name="label"></property>
+            <property name="sortPropertyName"></property>
+          </properties>
+          <properties mode="edit_sort_infos">
+            <property name="showInSortInfoSelection">true</property>
+          </properties>
+          <properties mode="edit_sort_infos_map">
+            <property name="showInSortInfoSelection">true</property>
+          </properties>
+        </column>
+        <column name="nxl_unknown_col_2">
+          <properties mode="any">
+            <property name="useFirstWidgetLabelAsColumnHeader">true</property>
+            <property name="columnStyleClass"></property>
+            <property name="label"></property>
+            <property name="sortPropertyName"></property>
+          </properties>
+          <properties mode="edit_sort_infos">
+            <property name="showInSortInfoSelection">true</property>
+          </properties>
+          <properties mode="edit_sort_infos_map">
+            <property name="showInSortInfoSelection">true</property>
+          </properties>
+        </column>
+        <column name="nxl_unknown_col_3">
+          <properties mode="any">
+            <property name="useFirstWidgetLabelAsColumnHeader">true</property>
+            <property name="columnStyleClass"></property>
+            <property name="label"></property>
+            <property name="sortPropertyName"></property>
+          </properties>
+          <properties mode="edit_sort_infos">
+            <property name="showInSortInfoSelection">true</property>
+          </properties>
+          <properties mode="edit_sort_infos_map">
+            <property name="showInSortInfoSelection">true</property>
+          </properties>
+        </column>
+        <column name="nxl_unknown_col_4" selectedByDefault="false">
+          <properties mode="any">
+            <property name="useFirstWidgetLabelAsColumnHeader">true</property>
+            <property name="columnStyleClass"></property>
+            <property name="label"></property>
+            <property name="sortPropertyName"></property>
+          </properties>
+          <properties mode="edit_sort_infos">
+            <property name="showInSortInfoSelection">true</property>
+          </properties>
+          <properties mode="edit_sort_infos_map">
+            <property name="showInSortInfoSelection">true</property>
+          </properties>
+        </column>
+      </columns>
+      <widget name="listing_title_link" type="listing_title_link">
+        <labels>
+          <label mode="any">label.Insurance.title</label>
+        </labels>
+        <translated>true</translated>
+        <fields>
+          <field>data</field>
+          <field>data.ref</field>
+          <field>data.dc.description</field>
+          <field>data.file.content</field>
+          <field>data.file.content.filename</field>
+        </fields>
+      </widget>
+      <widget name="start_date" type="datetime">
+        <labels>
+          <label mode="any">label.Insurance.start_date</label>
+        </labels>
+        <translated>true</translated>
+        <fields>
+          <field>data['Insurance']['start_date']</field>
+        </fields>
+      </widget>
+      <widget name="agent" type="text">
+        <labels>
+          <label mode="any">label.Insurance.agent</label>
+        </labels>
+        <translated>true</translated>
+        <fields>
+          <field>data['Insurance']['agent']</field>
+        </fields>
+      </widget>
+      <widget name="insurer" type="text">
+        <labels>
+          <label mode="any">label.Insurance.agent</label>
+        </labels>
+        <translated>true</translated>
+        <fields>
+          <field>data['Insurance']['insurer']</field>
+        </fields>
+      </widget>
+      <widget name="active" type="text">
+        <labels>
+          <label mode="any">label.Insurance.active</label>
+        </labels>
+        <translated>true</translated>
+        <fields>
+          <field>data['Insurance']['active']</field>
+        </fields>
+        <properties widgetMode="view">
+          <property name="localize">true</property>
+        </properties>
+        <properties mode="any">
+          <property name="localize">true</property>
+        </properties>
+      </widget>
+      <widget name="insured_first_name" type="text">
+        <labels>
+          <label mode="any">label.Insurance.insured_first_name</label>
+        </labels>
+        <translated>true</translated>
+        <fields>
+          <field>data['Insurance']['insured_first_name']</field>
+        </fields>
+      </widget>
+      <widget name="insured_last_name" type="text">
+        <labels>
+          <label mode="any">label.Insurance.insured_last_name</label>
+        </labels>
+        <translated>true</translated>
+        <fields>
+          <field>data['Insurance']['insured_last_name']</field>
+        </fields>
+      </widget>
+      <widget name="insured_id" type="text">
+        <labels>
+          <label mode="any">label.Insurance.insured_id</label>
+        </labels>
+        <translated>true</translated>
+        <fields>
+          <field>data['Insurance']['insured_id']</field>
+        </fields>
+      </widget>
+      <widget name="vehicule_type" type="text">
+        <labels>
+          <label mode="any">label.Insurance.vehicule_type</label>
+        </labels>
+        <translated>true</translated>
+        <fields>
+          <field>data['Auto']['vehicule_type']</field>
+        </fields>
+      </widget>
+      <widget name="vehicule_id" type="text">
+        <labels>
+          <label mode="any">label.Insurance.vehicule_id</label>
+        </labels>
+        <translated>true</translated>
+        <fields>
+          <field>data['Auto']['vehicule_id']</field>
+        </fields>
+      </widget>
+      <widget name="insured_phone_number" type="text">
+        <labels>
+          <label mode="any">label.Insurance.insured_phone_number_id</label>
+        </labels>
+        <translated>true</translated>
+        <fields>
+          <field>data['Insurance']['insured_phone_number']</field>
+        </fields>
+      </widget>
+    </layout>
+		
+	</extension>
+</component>

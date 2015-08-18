@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<component name="org.athento.nuxeo.contentview.InsuranceContentView" version="1.0.0">
+	<extension target="org.nuxeo.ecm.platform.ui.web.ContentViewService" point="contentViews">
+		<contentView name="Auto_Insurance_Search">
+      <genericPageProvider class="org.nuxeo.elasticsearch.provider.ElasticSearchNxqlPageProvider">
+        <property name="coreSession">#{documentManager}</property>
+        <whereClause>
+          <predicate parameter="dc:title" operator="STARTSWITH">
+            <field schema="Insurance_Search_cv" name="dublincore_title"/>
+          </predicate>
+          <predicate parameter="Insurance:insurer" operator="STARTSWITH">
+            <field schema="Insurance_Search_cv" name="Insurance_Search_insurer"/>
+          </predicate>
+          <predicate parameter="Insurance:active" operator="=">
+            <field schema="Insurance_Search_cv" name="Insurance_Search_active"/>
+          </predicate>
+          <predicate parameter="Insurance:agent" operator="STARTSWITH">
+            <field schema="Insurance_Search_cv" name="Insurance_Search_agent"/>
+          </predicate>
+          <predicate parameter="Insurance:start_date" operator="=">
+            <field schema="Insurance_Search_cv" name="Insurance_Search_start_date"/>
+          </predicate>
+          <predicate parameter="Insurance:insured_first_name" operator="STARTSWITH">
+            <field schema="Insurance_Search_cv" name="Insurance_Search_insured_first_name"/>
+          </predicate>
+          <predicate parameter="Insurance:insured_last_name" operator="STARTSWITH">
+            <field schema="Insurance_Search_cv" name="Insurance_Search_insured_last_name"/>
+          </predicate>
+          <predicate parameter="Insurance:insured_id" operator="STARTSWITH">
+            <field schema="Insurance_Search_cv" name="Insurance_Search_insured_id"/>
+          </predicate>
+          <predicate parameter="Insurance:insured_phone_number" operator="STARTSWITH">
+            <field schema="Insurance_Search_cv" name="Insurance_Search_insured_phone_number"/>
+          </predicate>
+          <predicate parameter="Insurance:vehicule_id" operator="STARTSWITH">
+            <field schema="Insurance_Search_cv" name="Insurance_Search_vehicule_id"/>
+          </predicate>
+          <predicate parameter="Insurance:vehicule_covered" operator="STARTSWITH">
+            <field schema="Insurance_Search_cv" name="Insurance_Search_vehicule_covered"/>
+          </predicate>
+          <predicate parameter="Insurance:vehicule_type" operator="STARTSWITH">
+            <field schema="Insurance_Search_cv" name="Insurance_Search_vehicule_type"/>
+          </predicate>
+          <predicate parameter="Insurance:insurance_rate" operator="STARTSWITH">
+            <field schema="Insurance_Search_cv" name="Insurance_Search_insurance_rate"/>
+          </predicate>
+          <fixedPart>ecm:mixinType != 'HiddenInNavigation' AND ecm:isCheckedInVersion = 0 AND ecm:currentLifeCycleState != 'deleted' AND ecm:primaryType = 'Insurance'</fixedPart>
+        </whereClause>
+        <searchDocumentType>Insurance_Search_cv</searchDocumentType>
+        <pageSize>20</pageSize>
+      </genericPageProvider>
+      <searchLayout name="Insurance_Search_cv@cvLayout"/>
+      <useGlobalPageSize>true</useGlobalPageSize>
+      <refresh>
+        <event>documentChanged</event>
+        <event>documentChildrenChanged</event>
+      </refresh>
+      <cacheKey>#{currentDocument.id}</cacheKey>
+      <cacheSize>10</cacheSize>
+      <selectionList>CURRENT_SELECTION</selectionList>
+      <showTitle>false</showTitle>
+      <showFilterForm>true</showFilterForm>
+      <showPageSizeSelector>true</showPageSizeSelector>
+      <showRefreshCommand>true</showRefreshCommand>
+      <actions category="CURRENT_SELECTION_LIST"/>
+      <actions category="cv_actions@Insurance_Search"/>
+      <resultLayouts>
+        <layout name="Insurance_Results" title="document_listing" translateTitle="true" iconPath="/icons/document_listing_icon.png" showCSVExport="true" showEditColumns="true" showSpreadsheet="true"/>
+      </resultLayouts>
+      <resultColumns>#{searchDocument.cvd.selectedLayoutColumns}</resultColumns>
+      <resultLayout>#{searchDocument.cvd.resultLayoutName}</resultLayout>
+      <flags>
+        <flag>SEARCH</flag>
+      </flags>
+    </contentView>
+	</extension>
+</component>

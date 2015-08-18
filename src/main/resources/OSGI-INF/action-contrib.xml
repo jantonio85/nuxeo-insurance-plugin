@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<component name="org.athento.nuxeo.actions.InsuranceActions"
+	version="1.0.0">
+	
+	<extension target="org.nuxeo.ecm.platform.actions.ActionService" point="actions">
+    <action id="Insurance_Search_search_action" enabled="true" order="4" type="link" immediate="false" link=".">
+      <category>SEARCH_CONTENT_VIEWS</category>
+      <properties>
+        <property name="contentViewName">Auto_Insurance_Search</property>
+      </properties>
+    </action>
+  </extension>
+</component>
